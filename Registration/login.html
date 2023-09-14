@@ -37,13 +37,13 @@
             const pwd = password.value;
 
             let users = JSON.parse(localStorage.getItem("users")) || [];
-            let existingUser = users.find((u) => u.username === userName);
-            console.log(existingUser);
-            if (!existingUser) {
+            let previousUser = users.find((userss) => userss.username === userName);
+            console.log(previousUser);
+            if (!previousUser) {
                 err.style.display = "block";
                 return;
             }
-            sessionStorage.setItem("user", JSON.stringify(existingUser));
+            sessionStorage.setItem("user", JSON.stringify(previousUser));
             window.location = "success.html";
         }
         form.addEventListener("submit", (e) => {
